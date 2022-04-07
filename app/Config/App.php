@@ -23,7 +23,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://localhost:8080/cardianaroot';
+    public $baseURL = 'http://localhost/cardaniaroot';
 
     /**
      * --------------------------------------------------------------------------
