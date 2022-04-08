@@ -29,15 +29,16 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a data-toggle="tooltip" data-placement="right" title="Contacts" href="<?= base_url() ?>/44gaasf" class="nav-link">
-                            <span class="nav-text">Contacts</span><i class="far fa-address-book"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a data-toggle="tooltip" data-placement="right" title="Values" href="<?= base_url() ?>/gfdgd42" class="nav-link">
                             <span class="nav-text">Values</span><i class="far fa-star"></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a data-toggle="tooltip" data-placement="right" title="Contacts" href="<?= base_url() ?>/44gaasf" class="nav-link">
+                            <span class="nav-text">Contacts</span><i class="far fa-address-book"></i>
+                        </a>
+                    </li>
+
 
                 </ul>
             </nav>
