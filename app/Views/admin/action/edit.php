@@ -1,6 +1,6 @@
 <?= $this->extend('admin'); ?>
 <?= $this->section('content'); ?>
-<h1>Home</h1>
+<h1>Edit</h1>
 <div class="row">
     <div class="col-lg-12 mb-30">
         <div class="portlet-box">
@@ -31,7 +31,7 @@
                                 <td><?= $home['sub_title_slide']; ?></td>
                                 <td><?= $home['picture_slide']; ?></td>
                                 <td>
-                                    <a href="<?= base_url() ?>/home/<?= $home['slug']; ?>" class="btn btn-warning">Detail</a>
+                                    <a href="<?= $base_url ?>/4543523/<?= $home['slug']; ?>" class="btn btn-warning">Detail</a>
                                 </td>
                             </tr>
 
@@ -42,6 +42,5 @@
         </div>
     </div>
 </div>
-
 
 <?= $this->endSection(); ?>

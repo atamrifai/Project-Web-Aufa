@@ -40,6 +40,8 @@ $routes->get('/hgdASf3', 'Home::product');
 $routes->get('/FewA234', 'Home::aboutus');
 $routes->get('/44gaasf', 'Home::contact');
 $routes->get('/gfdgd42', 'Home::value');
+
+$routes->get('/home/(:segment)', 'Home::detail/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
