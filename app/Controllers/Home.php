@@ -31,10 +31,61 @@ class Home extends BaseController
     public function home()
     {
         $data = [
-            'tb_home' => $this->CardaniaAdminData->getSlideData()
+            'home1' => $this->CardaniaAdminData->getSlideData(1),
+            'home2' => $this->CardaniaAdminData->getSlideData(2),
+            'home3' => $this->CardaniaAdminData->getSlideData(3)
         ];
         return view('admin/content/home', $data);
     }
+
+    public function homeupdate($id)
+    {
+        // $homelama = $this->CardaniaAdminData->getSlideData($this->mRequest->getVar(1));
+        // //cek kondisi apakah kosong atau tidak
+        // // if ($homelama['title_slide'] == $this->mRequest->getVar('title_slide')) {
+        // //     $rule_title = 'required';
+        // // }
+
+        // // if (!$this->validate([
+        // //     'nama' => [
+        // //         'rules' => $rule_title,
+        // //         'errors' => [
+        // //             'required' => '{field} nama siswa harus diisi'
+        // //         ]
+        // //     ],
+        // //     'foto' => [
+        // //         'rules' => 'max_size[foto,5024]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]',
+        // //         'errors' => [
+        // //             'max_size' => 'ukuran foto terlalu besar',
+        // //             'is_image' => 'file ini bukan gambar',
+        // //             'mime_in' => 'yang anda pilih bukan gambar'
+        // //         ]
+
+        // //     ]
+        // // ]))
+        $filepictureslide = $this->mRequest->getFile('picture_slide');
+        //cek gambar, apakah tetap gambar yang lama
+        if ($filepictureslide->getError() == 4) {
+            $picturename = $this->mRequest->getVar('old_picture_slide');
+        } else {
+            //genenrate nama random
+            $picturename = $filepictureslide->renamed;
+            //pindah ke img
+            $filepictureslide->move('public/images', $picturename);
+            //menghapus yang lama
+            unlink('public/images/' . $this->mRequest->getVar('old_picture_slide'));
+        }
+
+        $this->CardaniaAdminData->save([
+            'id' => $id,
+            'title_slide' => $this->mRequest->getVar('title_slide'),
+            'sub_title_slide' => $this->mRequest->getVar('sub_title_slide'),
+            'picture_slide' => $picturename
+        ]);
+        session()->setFlashdata('pesan', 'Data berhasil diubah.');
+        return redirect()->to('/4543523');
+    }
+
     public function dashboard()
     {
         return view('admin/content/dashboard');
